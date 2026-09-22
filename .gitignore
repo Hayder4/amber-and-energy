@@ -45,9 +45,3 @@ next-env.d.ts
 
 # admin-uploaded media (created at runtime)
 /public/uploads
-
-# sqlite dev database
-/*.db
-/*.db-journal
-/prisma/*.db
-/prisma/*.db-journal
