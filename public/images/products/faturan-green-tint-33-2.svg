@@ -1,0 +1,49 @@
+<svg width="1000" height="1000" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bg--1823667805" cx="50%" cy="38%" r="75%">
+      <stop offset="0%" stop-color="#1c140b"/>
+      <stop offset="100%" stop-color="#0a0704"/>
+    </radialGradient>
+    <filter id="grain--1823667805">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" result="noise"/>
+      <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0.7  0 0 0 0 0.55  0 0 0 0 0.3  0 0 0 0.05 0"/>
+    </filter>
+    <radialGradient id="gfaturan-green-tint-33-2-main" cx="35%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#A6BB74"/>
+      <stop offset="45%" stop-color="#71824A"/>
+      <stop offset="100%" stop-color="#3C4626"/>
+    </radialGradient>
+    <radialGradient id="gfaturan-green-tint-33-2-s0" cx="35%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#A6BB74"/>
+      <stop offset="45%" stop-color="#71824A"/>
+      <stop offset="100%" stop-color="#3C4626"/>
+    </radialGradient>
+    <radialGradient id="gfaturan-green-tint-33-2-s1" cx="35%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#A6BB74"/>
+      <stop offset="45%" stop-color="#71824A"/>
+      <stop offset="100%" stop-color="#3C4626"/>
+    </radialGradient>
+    <radialGradient id="gfaturan-green-tint-33-2-s2" cx="35%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#A6BB74"/>
+      <stop offset="45%" stop-color="#71824A"/>
+      <stop offset="100%" stop-color="#3C4626"/>
+    </radialGradient>
+    <radialGradient id="gfaturan-green-tint-33-2-s3" cx="35%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#A6BB74"/>
+      <stop offset="45%" stop-color="#71824A"/>
+      <stop offset="100%" stop-color="#3C4626"/>
+    </radialGradient>
+  </defs>
+  <rect width="1000" height="1000" fill="url(#bg--1823667805)"/>
+  <circle cx="500" cy="500" r="260" fill="url(#gfaturan-green-tint-33-2-main)" />
+      <ellipse cx="416.8" cy="401.2" rx="57.2" ry="33.800000000000004" fill="#FFF6E0" opacity="0.23274501821026206" />
+  <circle cx="837.5067424740988" cy="547.1176653303202" r="52.527607255615294" fill="url(#gfaturan-green-tint-33-2-s0)" />
+      <ellipse cx="820.6979081523019" cy="527.1571745731864" rx="11.556073596235365" ry="6.828588943229988" fill="#FFF6E0" opacity="0.2845974987768568" />
+  <circle cx="379.9738038686039" cy="736.8690650857252" r="66.62427292903885" fill="url(#gfaturan-green-tint-33-2-s1)" />
+      <ellipse cx="358.6540365313115" cy="711.5518413726904" rx="14.657340044388548" ry="8.66115548077505" fill="#FFF6E0" opacity="0.3470845629973337" />
+  <circle cx="82.64201390946283" cy="475.50445940043755" r="79.48012276319788" fill="url(#gfaturan-green-tint-33-2-s2)" />
+      <ellipse cx="57.208374625239514" cy="445.30201275042236" rx="17.485627007903535" ry="10.332415959215725" fill="#FFF6E0" opacity="0.31520863213110717" />
+  <circle cx="631.8191029003945" cy="226.4755431832275" r="81.7044751602225" fill="url(#gfaturan-green-tint-33-2-s3)" />
+      <ellipse cx="605.6736708491233" cy="195.42784262234295" rx="17.97498453524895" ry="10.621581770828925" fill="#FFF6E0" opacity="0.3494831840088591" />
+  <rect width="1000" height="1000" filter="url(#grain--1823667805)"/>
+</svg>
