@@ -15,18 +15,21 @@
 
 - Node.js 20+
 - npm
+- قاعدة بيانات PostgreSQL (مجانية عبر [Neon](https://neon.tech) أو Vercel Postgres أو Prisma Postgres، أو محليًا عبر Docker)
 
 ## البدء السريع
 
 ```bash
 npm install
-cp .env.example .env   # ثم عدّل القيم حسب الحاجة
-npx prisma migrate dev # ينشئ قاعدة بيانات SQLite محليًا
+cp .env.example .env   # ثم ضع رابط قاعدة بيانات PostgreSQL في DATABASE_URL
+npx prisma migrate dev # ينشئ الجداول على قاعدة البيانات
 npx prisma db seed     # يزرع مجموعات ومنتجات تجريبية بطابع "كهرمان أنتيك"
 npm run dev
 ```
 
 افتح http://localhost:3000
+
+> ما عندك قاعدة بيانات جاهزة؟ أسرع طريقة: أنشئ حسابًا مجانيًا على [neon.tech](https://neon.tech) (بدون بطاقة ائتمان)، أنشئ مشروعًا جديدًا، وانسخ رابط الاتصال (Connection String) إلى `DATABASE_URL` في `.env`.
 
 ### الحصول على صلاحية المدير
 
@@ -36,7 +39,7 @@ npm run dev
 
 | المتغير | الوصف |
 | --- | --- |
-| `DATABASE_URL` | رابط اتصال قاعدة البيانات (افتراضيًا ملف SQLite محلي) |
+| `DATABASE_URL` | رابط اتصال قاعدة بيانات PostgreSQL |
 | `AUTH_SECRET` | مفتاح سرّي لتوقيع جلسات تسجيل الدخول (JWT) — **غيّره قبل النشر** |
 | `ADMIN_EMAILS` | بريد إلكتروني واحد أو أكثر (مفصولة بفواصل) تُمنح صلاحية المدير تلقائيًا |
 | `NEXT_PUBLIC_SITE_NAME` | اسم المتجر المعروض |
@@ -48,12 +51,25 @@ npm run dev
 
 ## قاعدة البيانات
 
-المشروع يستخدم **Prisma 7** مع **SQLite** محليًا (`prisma/schema.prisma`، محرك `@prisma/adapter-better-sqlite3`). للانتقال إلى الإنتاج:
+المشروع يستخدم **Prisma 7** مع **PostgreSQL** (محرك `@prisma/adapter-pg`) — جاهز للنشر مباشرة، بدون أي تعديل إضافي على الكود.
 
-1. أنشئ قاعدة بيانات PostgreSQL (مثل Neon أو Supabase أو Prisma Postgres).
-2. غيّر `provider` في `prisma/schema.prisma` من `sqlite` إلى `postgresql`.
-3. ثبّت `@prisma/adapter-pg` بدلًا من `@prisma/adapter-better-sqlite3` وحدّث `src/lib/prisma.ts` وفق ذلك (راجع `.agents/skills/prisma-upgrade-v7/references/driver-adapters.md`).
-4. حدّث `DATABASE_URL` في `.env` وشغّل `npx prisma migrate deploy`.
+## النشر على الإنترنت (Vercel)
+
+هذا أسهل مسار لجعل المتجر يعمل برابط عام يفتح من أي جوال أو جهاز:
+
+1. **أنشئ قاعدة بيانات مجانية** على [neon.tech](https://neon.tech) (أو استخدم "Storage → Postgres" داخل Vercel مباشرة، وهو نفس الشيء بخطوة أقل) — انسخ رابط الاتصال.
+2. **أنشئ حسابًا على [vercel.com](https://vercel.com)** وسجّل الدخول بحساب GitHub نفسه.
+3. اضغط **Add New → Project** واختر مستودع `Hayder4/amber-and-energy`.
+4. قبل الضغط على Deploy، افتح **Environment Variables** وأضف:
+   - `DATABASE_URL` = رابط قاعدة بيانات Neon اللي نسخته
+   - `AUTH_SECRET` = قيمة عشوائية طويلة (يمكن توليدها من https://generate-secret.vercel.app/48)
+   - `ADMIN_EMAILS` = `amberandenergy@yahoo.com`
+   - `NEXT_PUBLIC_SITE_NAME` = `Amber & Energy`
+   - `NEXT_PUBLIC_CURRENCY` = `SAR`
+5. اضغط **Deploy**. سكربت البناء (`npm run build`) يشغّل `prisma migrate deploy` تلقائيًا فينشئ كل الجداول على قاعدة البيانات الجديدة بدون أي خطوة يدوية.
+6. (اختياري) لتعبئة الموقع ببيانات تجريبية أولية بدل ما يفتح فارغًا: من جهازك محليًا، ضع نفس `DATABASE_URL` في `.env` وشغّل `npx prisma db seed` — أو تجاهل هذه الخطوة وابدأ بإضافة منتجاتك الحقيقية مباشرة من `/admin` بعد أول تسجيل دخول.
+
+بعدها يصير عندك رابط عام دائم (مثل `amber-and-energy.vercel.app`) يفتح من أي جوال، وأي تعديل تدفعه لاحقًا إلى فرع `main` على GitHub يُنشر تلقائيًا.
 
 ## أوامر مفيدة
 
@@ -81,6 +97,6 @@ src/proxy.ts             حماية مسارات /admin و /account (يعادل 
 
 ## ملاحظات أمنية قبل النشر الفعلي
 
-- غيّر `AUTH_SECRET` إلى قيمة عشوائية طويلة (`openssl rand -base64 48`).
-- انتقل إلى قاعدة بيانات حقيقية (وليس SQLite) عند النشر على منصّة بدون تخزين دائم مثل Vercel.
+- غيّر `AUTH_SECRET` إلى قيمة عشوائية طويلة (`openssl rand -base64 48`) قبل أول نشر فعلي — لا تستخدم القيمة الافتراضية الموجودة في `.env`.
+- تأكد أن قاعدة بيانات الإنتاج مختلفة عن أي قاعدة تجريبية تستخدمها للتطوير، حتى لا تختلط بيانات العملاء الحقيقيين ببيانات الاختبار.
 - الدفع حاليًا "عند الاستلام" أو "تحويل بنكي يدوي" فقط — لدمج بوابة دفع إلكتروني (مثل Moyasar أو Tap أو Stripe) يلزم تعديل `src/app/api/checkout/route.ts`.

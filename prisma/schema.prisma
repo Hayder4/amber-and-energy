@@ -1,7 +1,8 @@
 // Amber & Energy — antique amber (كهرمان) boutique
 // Prisma 7 schema. Connection URL & driver adapter live in prisma7.config.ts / src/lib/prisma.ts
-// SQLite has no native enum or list-scalar support, so those fields are typed as String
-// and constrained at the application layer (see src/lib/types.ts).
+// Enum-like fields (role, status, discount type...) are kept as plain String and
+// constrained at the application layer (see src/lib/types.ts) rather than native
+// Postgres enums, so this schema stays portable if the datasource ever changes again.
 
 generator client {
   provider = "prisma-client"
@@ -9,7 +10,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
 }
 
 // -------------------- Users & Auth --------------------
