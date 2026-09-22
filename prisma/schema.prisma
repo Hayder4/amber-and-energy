@@ -1,0 +1,190 @@
+// Amber & Energy — antique amber (كهرمان) boutique
+// Prisma 7 schema. Connection URL & driver adapter live in prisma7.config.ts / src/lib/prisma.ts
+// SQLite has no native enum or list-scalar support, so those fields are typed as String
+// and constrained at the application layer (see src/lib/types.ts).
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+// -------------------- Users & Auth --------------------
+
+model User {
+  id           String   @id @default(cuid())
+  name         String
+  email        String   @unique
+  passwordHash String
+  role         String   @default("CUSTOMER") // CUSTOMER | ADMIN
+  phone        String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  orders    Order[]
+  addresses Address[]
+  wishlist  WishlistItem[]
+
+  @@index([role])
+}
+
+model Address {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  fullName  String
+  phone     String
+  city      String
+  district  String?
+  street    String
+  notes     String?
+  isDefault Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+}
+
+// -------------------- Catalog --------------------
+
+model Collection {
+  id            String   @id @default(cuid())
+  slug          String   @unique
+  name          String
+  nameEn        String?
+  description   String?
+  descriptionEn String?
+  heroImage     String?
+  accentColor   String   @default("#B8792F")
+  featured      Boolean  @default(false)
+  sortOrder     Int      @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  products Product[]
+
+  @@index([featured])
+}
+
+model Product {
+  id             String   @id @default(cuid())
+  slug           String   @unique
+  sku            String   @unique
+  name           String
+  nameEn         String?
+  description    String
+  descriptionEn  String?
+  images         String // JSON-encoded string[]
+  price          Float
+  compareAtPrice Float?
+  stock          Int      @default(1)
+  isUnique       Boolean  @default(false) // one-of-a-kind antique piece
+  origin         String? // e.g. "كهرمان بلطيقي طبيعي", "فاتوران دمشقي"
+  material       String   @default("كهرمان طبيعي")
+  weightGrams    Float?
+  beadsCount     Int? // for masbaha/prayer beads
+  age            String? // e.g. "أكثر من 60 عامًا"
+  hasCertificate Boolean  @default(false)
+  featured       Boolean  @default(false)
+  isNew          Boolean  @default(false)
+  rating         Float    @default(4.8)
+  reviewsCount   Int      @default(0)
+  status         String   @default("PUBLISHED") // PUBLISHED | DRAFT | ARCHIVED
+  collectionId   String?
+  collection     Collection? @relation(fields: [collectionId], references: [id])
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  discounts  Discount[]
+  orderItems OrderItem[]
+  wishlisted WishlistItem[]
+
+  @@index([collectionId])
+  @@index([status])
+  @@index([featured])
+}
+
+model WishlistItem {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@unique([userId, productId])
+}
+
+// -------------------- Discounts --------------------
+
+model Discount {
+  id           String    @id @default(cuid())
+  code         String?   @unique // null => automatic discount, no code needed
+  label        String
+  type         String // PERCENTAGE | FIXED
+  value        Float
+  productId    String?
+  product      Product?  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  collectionId String? // apply to a whole collection when set (no relation object needed)
+  active       Boolean   @default(true)
+  startsAt     DateTime?
+  endsAt       DateTime?
+  usageLimit   Int?
+  usedCount    Int       @default(0)
+  createdAt    DateTime  @default(now())
+
+  @@index([active])
+  @@index([productId])
+}
+
+// -------------------- Orders --------------------
+
+model Order {
+  id            String   @id @default(cuid())
+  number        String   @unique
+  userId        String?
+  user          User?    @relation(fields: [userId], references: [id])
+  guestName     String?
+  guestEmail    String?
+  guestPhone    String?
+  city          String
+  district      String?
+  street        String
+  notes         String?
+  paymentMethod String   @default("COD") // COD | BANK_TRANSFER
+  subtotal      Float
+  discountTotal Float    @default(0)
+  shippingFee   Float    @default(0)
+  total         Float
+  discountCode  String?
+  status        String   @default("PENDING") // PENDING | CONFIRMED | SHIPPED | DELIVERED | CANCELLED
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  items OrderItem[]
+
+  @@index([userId])
+  @@index([status])
+}
+
+model Subscriber {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  createdAt DateTime @default(now())
+}
+
+model OrderItem {
+  id        String  @id @default(cuid())
+  orderId   String
+  order     Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId String
+  product   Product @relation(fields: [productId], references: [id])
+  name      String
+  image     String?
+  price     Float
+  quantity  Int
+
+  @@index([orderId])
+}
