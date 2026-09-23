@@ -4,7 +4,7 @@ import { RevealGroup, Reveal } from "@/components/motion/reveal";
 import { getAllCollections } from "@/lib/data";
 import { dictionary, type Locale } from "@/lib/dictionary";
 
-export const metadata = { title: "المجموعات | Amber & Energy" };
+export const metadata = { title: "المجموعات | Amberandenergy" };
 
 export default async function CollectionsPage() {
   const cookieStore = await cookies();
@@ -19,7 +19,7 @@ export default async function CollectionsPage() {
           {dict.nav.collections}
         </p>
         <h1 className="font-display text-4xl text-foreground md:text-5xl">
-          {locale === "ar" ? "كل مجموعات الكهرمان" : "All Amber Collections"}
+          {locale === "ar" ? "كل المجموعات" : "All Collections"}
         </h1>
       </Reveal>
 

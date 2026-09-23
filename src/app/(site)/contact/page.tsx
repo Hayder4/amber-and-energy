@@ -6,6 +6,7 @@ import { toast } from "sonner";
 import { useLocale } from "@/context/locale-context";
 import { Reveal } from "@/components/motion/reveal";
 import { MagneticButton } from "@/components/motion/magnetic-button";
+import { SITE } from "@/lib/site";
 
 export default function ContactPage() {
   const { dict, locale } = useLocale();
@@ -33,22 +34,22 @@ export default function ContactPage() {
         </h1>
         <p className="mt-5 max-w-md text-sm leading-8 text-muted">
           {locale === "ar"
-            ? "لديك استفسار عن قطعة معينة أو ترغب بتقييم قطعة كهرمان تملكها؟ فريقنا جاهز لمساعدتك."
-            : "Have a question about a piece, or want an amber item appraised? Our team is ready to help."}
+            ? "لديك سؤال عن قطعة معينة أو عندك قطعة أنتيك تريد بيعها؟ تواصل معي مباشرة."
+            : "Have a question about a piece, or an antique you'd like to sell? Get in touch directly."}
         </p>
 
         <div className="mt-8 flex flex-col gap-4">
           {[
-            { icon: Phone, text: "+966 5X XXX XXXX", dir: "ltr" as const },
-            { icon: Mail, text: "hello@amberandenergy.com", dir: "ltr" as const },
-            { icon: MapPin, text: locale === "ar" ? "الرياض، المملكة العربية السعودية" : "Riyadh, Saudi Arabia", dir: undefined },
-          ].map(({ icon: Icon, text, dir }) => (
-            <div key={text} className="flex items-center gap-3 text-sm text-foreground/90">
+            { icon: Phone, text: SITE.phone, href: SITE.phoneHref, dir: "ltr" as const },
+            { icon: Mail, text: SITE.email, href: `mailto:${SITE.email}`, dir: "ltr" as const },
+            { icon: MapPin, text: locale === "ar" ? "ألمانيا" : "Germany", href: undefined, dir: undefined },
+          ].map(({ icon: Icon, text, href, dir }) => (
+            <a key={text} href={href} className="flex items-center gap-3 text-sm text-foreground/90 hover:text-amber-300">
               <span className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-amber-300">
                 <Icon size={16} />
               </span>
               <span dir={dir}>{text}</span>
-            </div>
+            </a>
           ))}
         </div>
       </Reveal>

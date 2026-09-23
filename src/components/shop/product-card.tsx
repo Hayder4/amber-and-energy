@@ -119,10 +119,12 @@ export function ProductCard({
 
         <div className="flex flex-1 flex-col gap-1.5 p-4">
           <h3 className="line-clamp-1 font-display text-base text-foreground">{name}</h3>
-          <div className="flex items-center gap-2">
-            <StarRating rating={product.rating} />
-            <span className="text-xs text-muted">({product.reviewsCount})</span>
-          </div>
+          {product.reviewsCount > 0 && (
+            <div className="flex items-center gap-2">
+              <StarRating rating={product.rating} />
+              <span className="text-xs text-muted">({product.reviewsCount})</span>
+            </div>
+          )}
           <div className="mt-auto pt-1">
             <PriceTag price={pricing.price} originalPrice={pricing.originalPrice} />
           </div>

@@ -1,0 +1,77 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bg-980806784" cx="50%" cy="38%" r="75%">
+      <stop offset="0%" stop-color="#1c140b"/>
+      <stop offset="100%" stop-color="#0a0704"/>
+    </radialGradient>
+    <filter id="grain-980806784">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" result="noise"/>
+      <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0.7  0 0 0 0 0.55  0 0 0 0 0.3  0 0 0 0.05 0"/>
+    </filter>
+    <radialGradient id="gclocks-radios-0" cx="35%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#E0994A"/>
+      <stop offset="45%" stop-color="#B0672A"/>
+      <stop offset="100%" stop-color="#5C3417"/>
+    </radialGradient>
+    <radialGradient id="gclocks-radios-1" cx="35%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#E0994A"/>
+      <stop offset="45%" stop-color="#B0672A"/>
+      <stop offset="100%" stop-color="#5C3417"/>
+    </radialGradient>
+    <radialGradient id="gclocks-radios-2" cx="35%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#E0994A"/>
+      <stop offset="45%" stop-color="#B0672A"/>
+      <stop offset="100%" stop-color="#5C3417"/>
+    </radialGradient>
+    <radialGradient id="gclocks-radios-3" cx="35%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#E0994A"/>
+      <stop offset="45%" stop-color="#B0672A"/>
+      <stop offset="100%" stop-color="#5C3417"/>
+    </radialGradient>
+    <radialGradient id="gclocks-radios-4" cx="35%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#E0994A"/>
+      <stop offset="45%" stop-color="#B0672A"/>
+      <stop offset="100%" stop-color="#5C3417"/>
+    </radialGradient>
+    <radialGradient id="gclocks-radios-5" cx="35%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#E0994A"/>
+      <stop offset="45%" stop-color="#B0672A"/>
+      <stop offset="100%" stop-color="#5C3417"/>
+    </radialGradient>
+    <radialGradient id="gclocks-radios-6" cx="35%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#E0994A"/>
+      <stop offset="45%" stop-color="#B0672A"/>
+      <stop offset="100%" stop-color="#5C3417"/>
+    </radialGradient>
+    <radialGradient id="gclocks-radios-7" cx="35%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#E0994A"/>
+      <stop offset="45%" stop-color="#B0672A"/>
+      <stop offset="100%" stop-color="#5C3417"/>
+    </radialGradient>
+    <radialGradient id="gclocks-radios-8" cx="35%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#E0994A"/>
+      <stop offset="45%" stop-color="#B0672A"/>
+      <stop offset="100%" stop-color="#5C3417"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="700" fill="url(#bg-980806784)"/>
+  <circle cx="96" cy="405.9978287162188" r="49.00000000000001" fill="url(#gclocks-radios-0)" />
+      <ellipse cx="80.32" cy="387.3778287162188" rx="10.780000000000001" ry="6.370000000000001" fill="#FFF6E0" opacity="0.2904240912105888" />
+  <circle cx="222" cy="428.5950207912179" r="62.39392013277815" fill="url(#gclocks-radios-1)" />
+      <ellipse cx="202.033945557511" cy="404.8853311407622" rx="13.726662429211192" ry="8.11120961726116" fill="#FFF6E0" opacity="0.3202166542224586" />
+  <circle cx="348" cy="457.83632236552063" r="73.74873734152916" fill="url(#gclocks-radios-2)" />
+      <ellipse cx="324.4004040507107" cy="429.81180217573956" rx="16.224722215136417" ry="9.587335854398791" fill="#FFF6E0" opacity="0.33459039562614634" />
+  <circle cx="474" cy="454.97731445624083" r="81.33578363789505" fill="url(#gclocks-radios-3)" />
+      <ellipse cx="447.9725492358736" cy="424.06971667384073" rx="17.89387240033691" ry="10.573651872926357" fill="#FFF6E0" opacity="0.2211686961282976" />
+  <circle cx="600" cy="436.80793117883763" r="84" fill="url(#gclocks-radios-4)" />
+      <ellipse cx="573.12" cy="404.8879311788376" rx="18.48" ry="10.92" fill="#FFF6E0" opacity="0.3034457685239613" />
+  <circle cx="726" cy="345.4742413856653" r="81.33578363789505" fill="url(#gclocks-radios-5)" />
+      <ellipse cx="699.9725492358735" cy="314.5666436032652" rx="17.89387240033691" ry="10.573651872926357" fill="#FFF6E0" opacity="0.2601653258712031" />
+  <circle cx="852" cy="298.236197805211" r="73.74873734152918" fill="url(#gclocks-radios-6)" />
+      <ellipse cx="828.4004040507107" cy="270.21167761542995" rx="16.22472221513642" ry="9.587335854398793" fill="#FFF6E0" opacity="0.28900562728988005" />
+  <circle cx="978" cy="242.92155047928125" r="62.39392013277815" fill="url(#gclocks-radios-7)" />
+      <ellipse cx="958.033945557511" cy="219.21186082882556" rx="13.726662429211192" ry="8.11120961726116" fill="#FFF6E0" opacity="0.32094702274072917" />
+  <circle cx="1104" cy="243.27264344454056" r="49.00000000000001" fill="url(#gclocks-radios-8)" />
+      <ellipse cx="1088.32" cy="224.65264344454056" rx="10.780000000000001" ry="6.370000000000001" fill="#FFF6E0" opacity="0.24644118311582133" />
+  <rect width="1200" height="700" filter="url(#grain-980806784)"/>
+</svg>

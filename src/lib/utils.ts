@@ -8,8 +8,8 @@ export function cn(...inputs: ClassValue[]) {
 const ARABIC_INDIC_DIGITS = "٠١٢٣٤٥٦٧٨٩";
 
 export function formatPrice(value: number, locale: "ar" | "en" = "ar") {
-  const currency = process.env.NEXT_PUBLIC_CURRENCY || "SAR";
-  const formatted = new Intl.NumberFormat(locale === "ar" ? "ar-SA" : "en-US", {
+  const currency = process.env.NEXT_PUBLIC_CURRENCY || "EUR";
+  const formatted = new Intl.NumberFormat(locale === "ar" ? "ar" : "de-DE", {
     style: "currency",
     currency,
     currencyDisplay: "narrowSymbol",

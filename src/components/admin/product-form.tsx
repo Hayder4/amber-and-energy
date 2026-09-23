@@ -165,7 +165,7 @@ export function ProductForm({
       <div className="grid gap-4 rounded-2xl card-border bg-background-card p-6 sm:grid-cols-3">
         <h2 className="font-display col-span-full text-lg text-foreground">السعر والمخزون</h2>
         <TextField
-          label="السعر (ر.س)"
+          label="السعر (€)"
           type="number"
           min={0}
           step="0.01"
