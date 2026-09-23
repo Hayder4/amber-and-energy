@@ -2,7 +2,6 @@ import { cookies } from "next/headers";
 import { Hero } from "@/components/home/hero";
 import { SectionHeading } from "@/components/home/section-heading";
 import { WhyUs } from "@/components/home/why-us";
-import { Testimonials } from "@/components/home/testimonials";
 import { Newsletter } from "@/components/home/newsletter";
 import { CollectionCard } from "@/components/shop/collection-card";
 import { ProductGrid } from "@/components/shop/product-grid";
@@ -78,7 +77,6 @@ export default async function HomePage() {
         </section>
       )}
 
-      <Testimonials />
       <Newsletter />
     </div>
   );

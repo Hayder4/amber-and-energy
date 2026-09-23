@@ -12,7 +12,7 @@ export function Footer() {
   return (
     <footer className="relative mt-24 border-t border-border bg-background-elevated">
       <Marquee
-        items={["كهرمان طبيعي 100%", "فاتوران أصيل", "شهادات توثيق", "تغليف فاخر", "شحن آمن لجميع المناطق"]}
+        items={["تحف نحاسية", "ساعات وراديوهات قديمة", "خزف وزجاج", "مسابح كهرمان", "شحن آمن"]}
         className="border-b border-border py-4"
       />
 

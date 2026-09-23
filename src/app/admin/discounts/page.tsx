@@ -44,7 +44,7 @@ export default async function AdminDiscountsPage() {
                   {d.code ?? "تلقائي"}
                 </td>
                 <td className="px-5 py-3 text-amber-300">
-                  {d.type === "PERCENTAGE" ? `${d.value}%` : `${d.value} ر.س`}
+                  {d.type === "PERCENTAGE" ? `${d.value}%` : `${d.value} €`}
                 </td>
                 <td className="px-5 py-3 text-muted">
                   {d.productId

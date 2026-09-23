@@ -107,12 +107,14 @@ export function ProductDetail({
               )}
             </div>
             <h1 className="font-display text-3xl text-foreground md:text-4xl">{name}</h1>
-            <div className="mt-3 flex items-center gap-3">
-              <StarRating rating={product.rating} />
-              <span className="text-sm text-muted">
-                {product.rating.toFixed(1)} · {product.reviewsCount} {dict.product.reviews}
-              </span>
-            </div>
+            {product.reviewsCount > 0 && (
+              <div className="mt-3 flex items-center gap-3">
+                <StarRating rating={product.rating} />
+                <span className="text-sm text-muted">
+                  {product.rating.toFixed(1)} · {product.reviewsCount} {dict.product.reviews}
+                </span>
+              </div>
+            )}
           </div>
 
           <PriceTag price={pricing.price} originalPrice={pricing.originalPrice} size="lg" />

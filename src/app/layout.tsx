@@ -26,9 +26,9 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Amberandenergy — كهرمان طبيعي وفاتوران أصيل",
+  title: "Amberandenergy — متجر أنتيك",
   description:
-    "Amberandenergy لأرقى قطع الكهرمان الطبيعي والفاتوران النادر: مسابح، خواتم، أساور، وقطع اقتناء موثّقة.",
+    "Amberandenergy — متجر أنتيك صغير لعدي الخاقاني: تحف نحاسية، ساعات وراديوهات قديمة، خزف، ومسابح كهرمان.",
 };
 
 export default async function RootLayout({ children }: LayoutProps<"/">) {

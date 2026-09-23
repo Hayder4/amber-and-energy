@@ -4,15 +4,15 @@ import { Reveal } from "@/components/motion/reveal";
 import { dictionary, type Locale } from "@/lib/dictionary";
 
 const timelineAr = [
-  { year: "منذ الطفولة", text: "بدأت الرحلة مع الكهرمان من سوق الأنتيكات القديم، شغفًا بلونه ودفئه." },
-  { year: "أكثر من 20 عامًا", text: "خبرة متراكمة في تمييز الكهرمان الطبيعي عن الفاتوران وعن التقليد." },
-  { year: "اليوم", text: "أمبر آند إنرجي — بيت رقمي يجمع أفضل القطع الموثقة لهواة الاقتناء أينما كانوا." },
+  { year: "الشغف", text: "حب القطع القديمة وقصصها هو ما بدأ كل شيء." },
+  { year: "الاختيار", text: "أختار كل قطعة بنفسي وأصف حالتها بصدق." },
+  { year: "اليوم", text: "Amberandenergy — متجر صغير على الإنترنت يوصل هذه القطع إليك." },
 ];
 
 const timelineEn = [
-  { year: "Since childhood", text: "The journey began at the old antiques market, drawn to amber's warmth and color." },
-  { year: "20+ years", text: "Deep expertise distinguishing natural amber from faturan and imitation." },
-  { year: "Today", text: "Amber & Energy — an online home bringing documented, authentic pieces to collectors everywhere." },
+  { year: "Passion", text: "A love for old objects and their stories is where it all started." },
+  { year: "Selection", text: "I pick every piece myself and describe its condition honestly." },
+  { year: "Today", text: "Amberandenergy — a small online shop bringing these pieces to you." },
 ];
 
 export default async function AboutPage() {
@@ -31,12 +31,12 @@ export default async function AboutPage() {
               {dict.nav.about}
             </p>
             <h1 className="font-display text-4xl text-foreground md:text-5xl">
-              {locale === "ar" ? "قصة أبو حيدر مع الكهرمان" : "Abu Haidar's Journey With Amber"}
+              {locale === "ar" ? "عدي الخاقاني" : "Oday Alkhagani"}
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-muted">
               {locale === "ar"
-                ? "أمبر آند إنرجي ليست مجرد متجر، بل امتداد لشغف عائلي بالكهرمان الطبيعي والفاتوران، توارثته الأيدي قبل أن يصل إليك موثّقًا وأصيلًا."
-                : "Amber & Energy is more than a store — it's an extension of a family passion for natural amber and faturan, passed down by hand before it reaches you documented and authentic."}
+                ? "أنا عدي الخاقاني، صاحب متجر Amberandenergy. متجر أنتيك صغير وبسيط يضم تحفًا نحاسية وساعات وراديوهات قديمة وخزفًا ومسابح كهرمان."
+                : "I'm Oday Alkhagani, owner of Amberandenergy — a small, simple antiques shop with brass and copper, vintage clocks and radios, porcelain, and amber prayer beads."}
             </p>
           </Reveal>
         </div>
@@ -59,9 +59,9 @@ export default async function AboutPage() {
       <section className="mx-auto max-w-6xl px-6 pb-24 md:px-8">
         <div className="grid gap-6 md:grid-cols-3">
           {[
-            "/images/collections/rare-pieces.svg",
-            "/images/collections/faturan-amber.svg",
-            "/images/collections/natural-amber-tasbih.svg",
+            "/images/collections/brass-copper.svg",
+            "/images/collections/clocks-radios.svg",
+            "/images/collections/amber-tasbih.svg",
           ].map((img, i) => (
             <Reveal key={img} delay={i * 0.1}>
               <div className="relative aspect-[4/5] overflow-hidden rounded-3xl card-border">

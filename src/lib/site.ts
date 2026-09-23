@@ -1,5 +1,7 @@
 export const SITE = {
   name: "Amberandenergy",
+  owner: "Oday Alkhagani",
+  ownerAr: "عدي الخاقاني",
   email: "Oday3330@gmail.com",
   phone: "+49 179 4267815",
   phoneHref: "tel:+491794267815",

@@ -103,7 +103,7 @@ export function DiscountForm({
           onChange={(e) => update("type", e.target.value as "PERCENTAGE" | "FIXED")}
         >
           <option value="PERCENTAGE">نسبة مئوية %</option>
-          <option value="FIXED">مبلغ ثابت (ر.س)</option>
+          <option value="FIXED">مبلغ ثابت (€)</option>
         </SelectField>
         <TextField
           label="القيمة"

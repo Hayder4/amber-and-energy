@@ -7,7 +7,6 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { ArrowLeft, ArrowRight, Sparkles } from "lucide-react";
 import { useLocale } from "@/context/locale-context";
 import { MagneticButton } from "@/components/motion/magnetic-button";
-import { AnimatedCounter } from "@/components/motion/animated-counter";
 
 const wordVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -105,25 +104,6 @@ export function Hero() {
             </Link>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.9, duration: 0.8 }}
-            className="mt-14 grid grid-cols-3 gap-4 border-t border-border pt-8"
-          >
-            {[
-              { value: 45, suffix: "+", label: dict.hero.stat1Label },
-              { value: 900, suffix: "+", label: dict.hero.stat2Label },
-              { value: 98, suffix: "%", label: dict.hero.stat3Label },
-            ].map((s) => (
-              <div key={s.label}>
-                <p className="font-display gold-gradient-text text-2xl font-bold sm:text-3xl">
-                  <AnimatedCounter to={s.value} suffix={s.suffix} />
-                </p>
-                <p className="mt-1 text-[11px] leading-tight text-muted sm:text-xs">{s.label}</p>
-              </div>
-            ))}
-          </motion.div>
         </div>
 
         <motion.div
@@ -136,7 +116,7 @@ export function Hero() {
           <div className="absolute inset-0 rounded-full bg-amber-500/10 blur-3xl" />
           <Image
             src="/images/hero-gem.svg"
-            alt="Amber & Energy"
+            alt="Amberandenergy"
             fill
             priority
             className="relative z-10 object-contain drop-shadow-2xl"

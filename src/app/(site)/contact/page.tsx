@@ -34,8 +34,8 @@ export default function ContactPage() {
         </h1>
         <p className="mt-5 max-w-md text-sm leading-8 text-muted">
           {locale === "ar"
-            ? "لديك استفسار عن قطعة معينة أو ترغب بتقييم قطعة كهرمان تملكها؟ فريقنا جاهز لمساعدتك."
-            : "Have a question about a piece, or want an amber item appraised? Our team is ready to help."}
+            ? "لديك سؤال عن قطعة معينة أو عندك قطعة أنتيك تريد بيعها؟ تواصل معي مباشرة."
+            : "Have a question about a piece, or an antique you'd like to sell? Get in touch directly."}
         </p>
 
         <div className="mt-8 flex flex-col gap-4">
