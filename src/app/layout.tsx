@@ -26,9 +26,9 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Amber & Energy | أمبر آند إنرجي — كهرمان طبيعي وفاتوران أصيل",
+  title: "Amberandenergy — كهرمان طبيعي وفاتوران أصيل",
   description:
-    "بيت أمبر آند إنرجي لأرقى قطع الكهرمان الطبيعي والفاتوران النادر: مسابح، خواتم، أساور، وقطع اقتناء موثّقة.",
+    "Amberandenergy لأرقى قطع الكهرمان الطبيعي والفاتوران النادر: مسابح، خواتم، أساور، وقطع اقتناء موثّقة.",
 };
 
 export default async function RootLayout({ children }: LayoutProps<"/">) {

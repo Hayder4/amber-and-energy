@@ -9,6 +9,7 @@ import { useCartStore, useCartCount } from "@/lib/cart-store";
 import { AccountMenu } from "@/components/layout/account-menu";
 import { LanguageToggle } from "@/components/layout/language-toggle";
 import { SearchOverlay } from "@/components/layout/search-overlay";
+import { SITE } from "@/lib/site";
 
 const links = [
   { href: "/", key: "home" as const },
@@ -43,7 +44,7 @@ export function Navbar() {
       >
         <div className="mx-auto flex h-[4.5rem] max-w-7xl items-center justify-between gap-4 px-4 py-3.5 md:px-8">
           <Link href="/" className="font-display gold-gradient-text text-2xl font-bold md:text-3xl">
-            أمبر آند إنرجي
+            {SITE.name}
           </Link>
 
           <nav className="hidden items-center gap-8 lg:flex">
@@ -109,7 +110,7 @@ export function Navbar() {
             className="fixed inset-0 z-[80] bg-background/98 backdrop-blur-xl lg:hidden"
           >
             <div className="flex items-center justify-between px-5 py-5">
-              <span className="font-display gold-gradient-text text-xl font-bold">أمبر آند إنرجي</span>
+              <span className="font-display gold-gradient-text text-xl font-bold">{SITE.name}</span>
               <button onClick={() => setMobileOpen(false)} className="text-muted">
                 <X size={22} />
               </button>
